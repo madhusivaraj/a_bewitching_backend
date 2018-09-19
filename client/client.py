@@ -1,5 +1,6 @@
 import os
 import sys
+import glog as log
 sys.path.insert(0, "../")
 import config
 import boto3
