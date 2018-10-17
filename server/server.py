@@ -15,7 +15,7 @@ def index():
 
 
 @app.route('/flicker', methods=['POST'])
-def ficker():
+def flicker():
     #push to sns
     action_dict = {"action":"flicker"}
     send_message(json.dumps(action_dict),"action")
