@@ -1,12 +1,16 @@
+
+var form = $('#ajax-flicker');
+var formMessages = $('#flicker-messages');
+
 $(function() {
     // Get the form.
-    var form = $('#ajax-flicker');
+    //var form = $('#ajax-flicker');
 
     // Get the messages div.
-    var formMessages = $('#flicker-messages');
+    //var formMessages = $('#flicker-messages');
 
     // Set up an event listener for the contact form.
-	$(form).submit(function(event) {
+	$(form).submit(function(event, form, formMessages) {
     // Stop the browser from submitting the form.
     	event.preventDefault();
 
