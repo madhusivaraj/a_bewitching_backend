@@ -8,14 +8,12 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 client = boto3.client('sns')
 
-@app.route('/flicker', methdos=['POST'])
+@app.route('/flicker', methods=['POST'])
 def flicker():
     #push to sns
-    if request.form['trigger'] == 1:
-        action_dict = {"action":"flicker"}
-        send_message(json.dumps(action_dict),"action")
-        return 'flicker'
-    return False
+    action_dict = {"action":"flicker"}
+    send_message(json.dumps(action_dict),"action")
+    return 'flickered'
 
 
 @app.route('/')
