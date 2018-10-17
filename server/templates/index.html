@@ -4,17 +4,26 @@
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     	<link rel="stylesheet" type="text/css" href="../static/styles.css">
     	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     </head>
-    <body style="background-color: black">
+    <body>
 
     <div class="container" style="padding: 175px 20px 100px 20px">
     	<div class="row">
     		<div class="col-sm">
-    			  <form action='/flicker', method="post">
+                  <div id="flicker-messages"></div>
+                  <form id="ajax-flicker" method="post">
+                    <button type="submit">
+                        FLICKER THE LIGHTS
+                    </button>
+                  </form>
+    			  <!-- <form action='/flicker', method="post">
             		<button type="submit">
                 		FLICKER THE LIGHTS
             		</button>
-       	 		  </form>
+       	 		  </form> --> 
+
+
     		</div>
 
     		<div class="col-sm">
@@ -76,5 +85,7 @@
     	</div>
     </div>
 
+    <script src="jquery-2.1.0.min.js"></script>
+    <script src="app.js"></script>
     </body>
 </html>
