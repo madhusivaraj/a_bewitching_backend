@@ -3,7 +3,7 @@ $(function() {
     var form = $('#ajax-flicker');
 
     // Get the messages div.
-    var formMessages = $('#form-messages');
+    var formMessages = $('#flicker-messages');
 
     // Set up an event listener for the contact form.
 	$(form).submit(function(event) {
