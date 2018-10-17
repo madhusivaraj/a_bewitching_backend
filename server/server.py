@@ -6,7 +6,7 @@ import boto3
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-client = boto3.client('sns', 'us-east-2')
+client = boto3.client('sns')
 
 @app.route('/')
 def index():
@@ -15,7 +15,7 @@ def index():
 
 
 @app.route('/flicker', methods=['POST'])
-def flicker():
+def ficker():
     #push to sns
     action_dict = {"action":"flicker"}
     send_message(json.dumps(action_dict),"action")
