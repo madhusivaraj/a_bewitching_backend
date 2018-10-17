@@ -1,87 +1,127 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    	<link rel="stylesheet" type="text/css" href="../static/styles.css">
-    	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="../static/app.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../static/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- <script src="../app.js"></script> -->
     </head>
     <body>
+        <div class="container" style="padding: 175px 20px 150px 20px">
+        	<div class="row">
+        		<div class="col-sm">
+                      <div id="flicker-messages"></div>
+                      
+                      <!-- <form id="ajax-flicker" method="post" action="/flicker"> -->
+                        <button onclick="flicker()" type="submit">
+                            FLICKER THE LIGHTS
+                        </button>
+                      <!-- </form> -->
+        			 
+        		</div>
 
-    <div class="container" style="padding: 175px 20px 100px 20px">
-    	<div class="row">
-    		<div class="col-sm">
-                  <div id="flicker-messages"></div>
-                  
-                  <form id="ajax-flicker" method="post" action="/flicker">
-                    <button type="submit">
-                        FLICKER THE LIGHTS
-                    </button>
-                  </form>
-    			 
-    		</div>
+        		<div class="col-sm">
+        			<form action='/clown', method="post">
+                		<button type="submit">
+                    		DROP THE CLOWN
+                		</button>
+            		</form>
+        		</div>
 
-    		<div class="col-sm">
-    			<form action='/clown', method="post">
-            		<button type="submit">
-                		DROP THE CLOWN
-            		</button>
-        		</form>
-    		</div>
+        		<div class="col-sm">
+        			<form action='/blinds', method="post">
+                		<button type="submit">
+                    		SHUTTER THE BLINDS
+                		</button>
+            		</form>
+        		</div>
 
-    		<div class="col-sm">
-    			<form action='/blinds', method="post">
-            		<button type="submit">
-                		SHUTTER THE BLINDS
-            		</button>
-        		</form>
-    		</div>
+        		<div class="col-sm">
+        			 <form action='/shadow', method="post">
+                		<button type="submit">
+                    		FLASH SHADOW
+                		</button>
+            		</form>
+        		</div>
+        	</div>
 
-    		<div class="col-sm">
-    			 <form action='/shadow', method="post">
-            		<button type="submit">
-                		FLASH SHADOW
-            		</button>
-        		</form>
-    		</div>
-    	</div>
+        	<br>
+        	<br>
 
-    	<br>
-    	<br>
+        	<div class="row">
+        		<div class="col-sm">
+        			 <form action='/fog', method="post">
+                		<button type="submit">
+                    		FOG
+                		</button>
+            		</form>
+        		</div>
 
-    	<div class="row">
-    		<div class="col-sm">
-    			 <form action='/fog', method="post">
-            		<button type="submit">
-                		FOG
-            		</button>
-        		</form>
-    		</div>
+        		<div class="col-sm">
+        			<form action='/coffin', method="post">
+                		<button type="submit">
+                    		OPEN THE COFFIN
+                		</button>
+            		</form>
+        		</div>
 
-    		<div class="col-sm">
-    			<form action='/coffin', method="post">
-            		<button type="submit">
-                		OPEN THE COFFIN
-            		</button>
-        		</form>
-    		</div>
+        		<div class="col-sm">
+        			<form action='/doll', method="post">
+                		<button type="submit">
+                    		TURN DOLL HEAD
+                		</button>
+            		</form>
+        		</div>
 
-    		<div class="col-sm">
-    			<form action='/doll', method="post">
-            		<button type="submit">
-                		TURN DOLL HEAD
-            		</button>
-        		</form>
-    		</div>
-
-    		<div class="col-sm">
-    			 
-    		</div>
-    	</div>
-    </div>
-
-    <script src="jquery-2.1.0.min.js"></script>
-    <script src="app.js"></script>
+        		<div class="col-sm">
+        			 
+        		</div>
+        	</div>
+        </div>
     </body>
+    <script type="text/javascript">
+        function flicker(){
+            $.ajax({
+                type: 'POST',
+                url: '/flicker'
+            });
+        }
+        function clown(){
+            $.ajax({
+                type: 'POST',
+                url: '/clown'
+            });
+        }
+        function blinds(){
+            $.ajax({
+                type: 'POST',
+                url: '/blinds'
+            });
+        }
+        function shadow(){
+            $.ajax({
+                type: 'POST',
+                url: '/shadow'
+            });
+        }
+        function fog(){
+            $.ajax({
+                type: 'POST',
+                url: '/fog'
+            });
+        }
+        function coffin(){
+            $.ajax({
+                type: 'POST',
+                url: '/coffin'
+            });
+        }
+        function doll(){
+            $.ajax({
+                type: 'POST',
+                url: '/doll'
+            });
+        }
+    </script>
 </html>
