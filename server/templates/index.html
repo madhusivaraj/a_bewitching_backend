@@ -1,13 +1,80 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    	<link rel="stylesheet" type="text/css" href="../static/styles.css">
+    	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     </head>
-    <body>
-        <form action='/flicker', method="post">
-            <button>
-                Flicker the Lights
-            </button>
-        </form>
+    <body style="background-color: black">
+
+    <div class="container" style="padding: 175px 20px 100px 20px">
+    	<div class="row">
+    		<div class="col-sm">
+    			  <form action='/flicker', method="post">
+            		<button type="submit">
+                		FLICKER THE LIGHTS
+            		</button>
+       	 		  </form>
+    		</div>
+
+    		<div class="col-sm">
+    			<form action='/clown', method="post">
+            		<button type="submit">
+                		DROP THE CLOWN
+            		</button>
+        		</form>
+    		</div>
+
+    		<div class="col-sm">
+    			<form action='/blinds', method="post">
+            		<button type="submit">
+                		SHUTTER THE BLINDS
+            		</button>
+        		</form>
+    		</div>
+
+    		<div class="col-sm">
+    			 <form action='/shadow', method="post">
+            		<button type="submit">
+                		FLASH SHADOW
+            		</button>
+        		</form>
+    		</div>
+    	</div>
+
+    	<br>
+    	<br>
+
+    	<div class="row">
+    		<div class="col-sm">
+    			 <form action='/fog', method="post">
+            		<button type="submit">
+                		FOG
+            		</button>
+        		</form>
+    		</div>
+
+    		<div class="col-sm">
+    			<form action='/coffin', method="post">
+            		<button type="submit">
+                		OPEN THE COFFIN
+            		</button>
+        		</form>
+    		</div>
+
+    		<div class="col-sm">
+    			<form action='/doll', method="post">
+            		<button type="submit">
+                		TURN DOLL HEAD
+            		</button>
+        		</form>
+    		</div>
+
+    		<div class="col-sm">
+    			 
+    		</div>
+    	</div>
+    </div>
+
     </body>
 </html>

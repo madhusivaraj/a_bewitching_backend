@@ -1,0 +1,13 @@
+body {
+	background-color: black;
+	font-family: 'Roboto', sans-serif;
+}
+
+button {
+	background-color: white;
+	box-shadow: 7px 10px 20px #3de837;
+	border-radius: 10px;
+	height: 150px;
+	width: 250px;
+	font-size: 30px;
+}

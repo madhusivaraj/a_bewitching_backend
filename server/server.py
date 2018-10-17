@@ -6,7 +6,13 @@ import boto3
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-client = boto3.client('sns')
+client = boto3.client('sns', 'us-east-2')
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
 
 @app.route('/flicker', methods=['POST'])
 def flicker():
@@ -15,10 +21,47 @@ def flicker():
     send_message(json.dumps(action_dict),"action")
     return 'flickered'
 
+@app.route('/clown', methods=['POST'])
+def clown():
+    #push to sns
+    action_dict = {"action":"clown"}
+    send_message(json.dumps(action_dict),"action")
+    return 'clown dropped'
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route('/blinds', methods=['POST'])
+def blinds():
+    #push to sns
+    action_dict = {"action":"blinds"}
+    send_message(json.dumps(action_dict),"action")
+    return 'blinds opened'
+
+@app.route('/shadow', methods=['POST'])
+def shadow():
+    #push to sns
+    action_dict = {"action":"shadow"}
+    send_message(json.dumps(action_dict),"action")
+    return 'shadow flashed'
+
+@app.route('/fog', methods=['POST'])
+def fog():
+    #push to sns
+    action_dict = {"action":"fog"}
+    send_message(json.dumps(action_dict),"action")
+    return 'fog released'
+
+@app.route('/coffin', methods=['POST'])
+def coffin():
+    #push to sns
+    action_dict = {"action":"coffin"}
+    send_message(json.dumps(action_dict),"action")
+    return 'coffin opened'
+
+@app.route('/doll', methods=['POST'])
+def doll():
+    #push to sns
+    action_dict = {"action":"doll"}
+    send_message(json.dumps(action_dict),"action")
+    return 'doll head turned'
 
 def send_message(msg,subject:str):
 
