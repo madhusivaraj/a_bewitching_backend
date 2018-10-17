@@ -15,7 +15,7 @@ def index():
 
 
 @app.route('/flicker', methods=['POST'])
-def ficker():
+def flicker():
     try:
         action_dict = {"action":"flicker"}
         send_message(json.dumps(action_dict),"action")
@@ -66,6 +66,3 @@ def send_message(msg,subject:str):
             Subject = subject,
             MessageStructure = 'string'
         )
-    
-
-
