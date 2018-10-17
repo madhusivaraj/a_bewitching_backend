@@ -25,15 +25,18 @@ def flicker():
 
 @app.route('/clown', methods=['POST'])
 def clown():
-    action_dict = {"action":"clown"}
-    send_message(json.dumps(action_dict),"action")
-    return 'clown dropped'
+    try:
+        action_dict = {"action":"clown"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
 
 @app.route('/blinds', methods=['POST'])
 def blinds():
     action_dict = {"action":"blinds"}
     send_message(json.dumps(action_dict),"action")
-    return 'blinds opened'
+    return 'blinds opexned'
 
 @app.route('/shadow', methods=['POST'])
 def shadow():
