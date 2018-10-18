@@ -90,3 +90,10 @@ textarea {
      -moz-border-radius: 4px;
           border-radius: 4px;
 }
+
+.button-row button{
+  margin: 1em;
+}
+.button-container{
+  margin: 2.5em;
+}
