@@ -35,33 +35,48 @@ def clown():
 
 @app.route('/blinds', methods=['POST'])
 def blinds():
-    action_dict = {"action":"blinds"}
-    send_message(json.dumps(action_dict),"action")
-    return 'blinds opexned'
+    try:
+        action_dict = {"action":"blinds"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
 
 @app.route('/shadow', methods=['POST'])
 def shadow():
-    action_dict = {"action":"shadow"}
-    send_message(json.dumps(action_dict),"action")
-    return 'shadow flashed'
+    try:
+        action_dict = {"action":"shadow"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
 
 @app.route('/fog', methods=['POST'])
 def fog():
-    action_dict = {"action":"fog"}
-    send_message(json.dumps(action_dict),"action")
-    return 'fog released'
+    try:    
+        action_dict = {"action":"fog"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
 
 @app.route('/coffin', methods=['POST'])
 def coffin():
-    action_dict = {"action":"coffin"}
-    send_message(json.dumps(action_dict),"action")
-    return 'coffin opened'
+    try:
+        action_dict = {"action":"coffin"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
 
 @app.route('/doll', methods=['POST'])
 def doll():
-    action_dict = {"action":"doll"}
-    send_message(json.dumps(action_dict),"action")
-    return 'doll head turned'
+    try:
+        action_dict = {"action":"doll"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
 
 def send_message(msg,subject:str):
     client.publish(
