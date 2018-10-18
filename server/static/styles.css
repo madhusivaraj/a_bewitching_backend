@@ -10,6 +10,7 @@ button {
 	height: 150px;
 	width: 250px;
 	font-size: 30px;
+	color: white;
 }
 
 *, *:before, *:after {
