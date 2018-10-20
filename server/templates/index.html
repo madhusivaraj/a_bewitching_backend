@@ -10,8 +10,8 @@
         <div class="button-container">
             <div class="d-flex flex-row">
                 <div class="button-row">
-                    <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
-                    <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
+                    <button id="flickerbutton" onclick="flicker(flickerbutton, red)" type="submit">FLICKER THE LIGHTS</button>
+                    <button onclick="clown()" type="submit">DROP THE CLOWN</button>
                 </div>
                 <div class="button-row">
                     <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
@@ -101,7 +101,9 @@
         </div> -->
     </body>
     <script type="text/javascript">
-        function flicker(){
+        function flicker(btn, color){
+            var property = document.getElementById(btn);
+            property.style.backgroundColor = "#e21304"
             $.ajax({
                 type: 'POST',
                 url: '/flicker'
@@ -142,6 +144,10 @@
                 type: 'POST',
                 url: '/doll'
             });
+        }
+        function setColor(btn, color) {
+            var property = document.getElementById(btn);
+            property.style.backgroundColor = red;
         }
     </script>
 </html>
