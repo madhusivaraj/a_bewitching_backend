@@ -10,8 +10,8 @@
         <div class="button-container">
             <div class="d-flex flex-row">
                 <div class="button-row">
-                    <button id="flickerbutton" onClick="flicker()" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">FLICKER THE LIGHTS</button>
-                    <button id="clownbutton" onclick="clown('clownbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">DROP THE CLOWN</button>
+                    <button id="flickerbutton" onClick="flicker('flickerbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">FLICKER THE LIGHTS</button>
+                    <button id="clownbutton" onclick="clown('clownbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'"  type="submit">DROP THE CLOWN</button>
                 </div>
                 <div class="button-row">
                     <button id="shutterbutton" onClick="blinds('shutterbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">SHUTTER THE BLINDS</button>
@@ -43,107 +43,124 @@
                 </div>
             <div>
         </div>
-        <!-- <div class="container" style="padding: 175px 20px 150px 20px">
-        	<div class="row">
-
-        		<div class="col-sm">
-                        <button onclick="flicker()" type="submit">
-                            FLICKER THE LIGHTS
-                        </button>
-        		</div>
-
-        		<div class="col-sm">
-                	<button onclick="clown()" type="submit">
-                    	DROP THE CLOWN
-                	</button>
-        		</div>
-
-        		<div class="col-sm">
-                	<button onclick="blinds()" type="submit">
-                    	SHUTTER THE BLINDS
-                	</button>
-        		</div>
-
-        		<div class="col-sm">
-                    <button onclick="shadow()" type="submit">
-                    	FLASH SHADOW
-                	</button>
-        		</div>
-
-        	</div>
-
-        	<br>
-        	<br>
-
-        	<div class="row">
-        		<div class="col-sm">
-                	<button onclick="fog()" type="submit">
-                    	FOG
-                	</button>
-        		</div>
-
-        		<div class="col-sm">
-                	<button onclick="coffin()" type="submit">
-                    	OPEN THE COFFIN
-                	</button>
-        		</div>
-
-        		<div class="col-sm">
-                	<button onclick="doll()" type="submit">
-                    	TURN DOLL HEAD
-                	</button>
-        		</div>
-
-        		<div class="col-sm">
-        			 
-        		</div>
-        	</div>
-        </div> -->
     </body>
     <script type="text/javascript">
+        var flickercount = 3;
+        var clowncount = 1; // zipline
+        var blindscount = 3;
+        var shadowcount = 3;
+        var fogcount = 3;
+        var coffincount = 3;
+        var dollcount = 3;
+
         function flicker(btn){
-            //document.getElementById(btn).style.backgroundColor = "#e21304"
-            //setColor(btn, 'red');
             $.ajax({
                 type: 'POST',
                 url: '/flicker'
             });
+            flickercount--;
+            if(flickercount == 0){
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            } 
+            document.getElementById(btn).disabled = true; // disable button when pressed for x seconds - setTimeout
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); // enable button again
         }
         function clown(btn){
             $.ajax({
                 type: 'POST',
                 url: '/clown'
             });
+            clowncount--;
+            if(clowncount == 0){
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            } 
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); 
         }
         function blinds(btn){
             $.ajax({
                 type: 'POST',
                 url: '/blinds'
             });
+            blindscount--;
+            if(blindscount == 0){
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            } 
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); 
         }
         function shadow(btn){
             $.ajax({
                 type: 'POST',
                 url: '/shadow'
             });
+            shadowcount--;
+            if(shadowcount == 0){
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            } 
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); 
         }
         function fog(btn){
             $.ajax({
                 type: 'POST',
                 url: '/fog'
             });
+            fogcount--;
+            if(fogcount == 0){
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            } 
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); 
         }
         function coffin(btn){
             $.ajax({
                 type: 'POST',
                 url: '/coffin'
             });
+            coffincount--;
+            if(coffincount == 0){
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            } 
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); 
         }
         function doll(btn){
             $.ajax({
                 type: 'POST',
                 url: '/doll'
             });
+            dollcount--;
+            if(dollcount == 0){
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            } 
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); 
+        }
+        function setUp(btn){
+            document.getElementById(btn).disabled = false;
+            document.getElementById(btn).style.backgroundColor = "#0FBF6D";
         }
     </script>
 </html>
