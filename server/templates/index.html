@@ -10,19 +10,19 @@
         <div class="button-container">
             <div class="d-flex flex-row">
                 <div class="button-row">
-                    <button id="flickerbutton" onclick="flicker(flickerbutton, red)" type="submit">FLICKER THE LIGHTS</button>
-                    <button onclick="clown()" type="submit">DROP THE CLOWN</button>
+                    <button id="flickerbutton" onClick="flicker()" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">FLICKER THE LIGHTS</button>
+                    <button id="clownbutton" onclick="clown('clownbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">DROP THE CLOWN</button>
                 </div>
                 <div class="button-row">
-                    <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
-                    <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
+                    <button id="shutterbutton" onClick="blinds('shutterbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">SHUTTER THE BLINDS</button>
+                    <button id="flashbutton" onClick="shadow('flashbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">FLASH SHADOW</button>
                 </div>
                 <div class="button-row">
-                    <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
-                    <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
+                    <button id="fogbutton" onClick="fog('fogbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">FOG</button>
+                    <button id="coffinbutton" onClick="coffin('coffinbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">OPEN THE COFFIN</button>
                 </div>
                 <div class="button-row">
-                    <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
+                    <button id="dollbutton" onClick="doll('dollbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">TURN THE DOLL HEAD</button>
                     <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
                 </div>
                 <div class="button-row">
@@ -101,53 +101,49 @@
         </div> -->
     </body>
     <script type="text/javascript">
-        function flicker(btn, color){
-            var property = document.getElementById(btn);
-            property.style.backgroundColor = "#e21304"
+        function flicker(btn){
+            //document.getElementById(btn).style.backgroundColor = "#e21304"
+            //setColor(btn, 'red');
             $.ajax({
                 type: 'POST',
                 url: '/flicker'
             });
         }
-        function clown(){
+        function clown(btn){
             $.ajax({
                 type: 'POST',
                 url: '/clown'
             });
         }
-        function blinds(){
+        function blinds(btn){
             $.ajax({
                 type: 'POST',
                 url: '/blinds'
             });
         }
-        function shadow(){
+        function shadow(btn){
             $.ajax({
                 type: 'POST',
                 url: '/shadow'
             });
         }
-        function fog(){
+        function fog(btn){
             $.ajax({
                 type: 'POST',
                 url: '/fog'
             });
         }
-        function coffin(){
+        function coffin(btn){
             $.ajax({
                 type: 'POST',
                 url: '/coffin'
             });
         }
-        function doll(){
+        function doll(btn){
             $.ajax({
                 type: 'POST',
                 url: '/doll'
             });
-        }
-        function setColor(btn, color) {
-            var property = document.getElementById(btn);
-            property.style.backgroundColor = red;
         }
     </script>
 </html>
