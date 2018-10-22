@@ -57,7 +57,8 @@
         var fogcount = 3;
         var coffincount = 3;
         var dollcount = 3;
-
+        var ids = ["flickerbutton", "clownbutton", "blindsbutton", "shadowbutton", "fogbutton", "coffinbutton", "dollbutton"]
+        setTimeout(disableAll, 1000, ids);
         function flicker(btn){
             $.ajax({
                 type: 'POST',
@@ -167,20 +168,13 @@
             document.getElementById(btn).disabled = false;
             document.getElementById(btn).style.backgroundColor = "#0FBF6D";
         }
-        function audio(btn){
-            $.ajax({
-                type: 'POST',
-                url: '/flicker'
-            });
-            flickercount--;
-            if(flickercount == 0){
-                document.getElementById(btn).disabled = true;
-                document.getElementById(btn).style.backgroundColor = "#b1bac9";
-                return;
-            } 
-            document.getElementById(btn).disabled = true; // disable button when pressed for x seconds - setTimeout
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
-            setTimeout(setUp, 2000, btn); // enable button again
+        function disableAll(ids){
+            ids.forEach(disable);
         }
+        function disable(btn){
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+        }
+
     </script>
 </html>

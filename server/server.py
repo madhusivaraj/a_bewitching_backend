@@ -78,6 +78,16 @@ def doll():
     except:
         return jsonify(success=False)
 
+# automated sequence
+@app.route('/e', methods=['POST'])
+def e():
+    try:
+        action_dict = {"action":"doll"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
 def send_message(msg,subject:str):
     client.publish(
             TopicArn = config.sns_arn,
@@ -85,3 +95,5 @@ def send_message(msg,subject:str):
             Subject = subject,
             MessageStructure = 'string'
         )
+if __name__ == '__main__':
+    app.run(debug=True)
