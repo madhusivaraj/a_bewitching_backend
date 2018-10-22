@@ -29,8 +29,14 @@
                     <button id="tvButton" onClick="tv('tvButton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#aa2a2a'" type="submit">TURN TV ON</button>
                 </div>
             <div>
+             
         </div>
+
+    <button id="reset" onClick="popup()" href="url_for('e')" style="background-color: white;height:30px;width: 50px;text-align: center;position: absolute;top: 90%;right: 55%;font-size: 10px;">START</button>
+
+    <button id="reset" onClick="popup()" href="url_for('index')" style="background-color: white;height:30px;width: 50px;text-align: center;position: absolute;top: 90%;right: 45%;font-size: 10px;">STOP</button>
     </body>
+
     <script type="text/javascript">
         var lightningcount = 3;
         var maskcount = 1; // zipline
@@ -177,6 +183,12 @@
         function disable(btn){
             document.getElementById(btn).disabled = true;
             document.getElementById(btn).style.backgroundColor = "#b1bac9";
+        }
+        function popup(){
+            var password = prompt('Please enter the password: ');
+            if (password != '1234'){
+                alert('You are not authorized to use this feature.');
+            }
         }
 
     </script>
