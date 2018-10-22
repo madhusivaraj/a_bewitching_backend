@@ -26,8 +26,8 @@
                     <button onclick="flicker()" type="submit">FLICKER THE LIGHTS</button>
                 </div>
                 <div class="button-row">
-                    <button id="dollbutton" onClick="doll('dollbutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">START MAIN AUDIO</button>
-                    <button onclick="flicker()" type="submit">START MAIN AUDIO</button>
+                    <button id="audiobutton" onClick="audio('audiobutton')" onmousedown="this.style.background='#e21304'" onmouseup="this.style.background='#0FBF6D'" type="submit">START MAIN AUDIO</button>
+                    <button onclick="audio()" type="submit">XX MAIN AUDIO</button>
                 </div>
 
                 <div class="button-row">
@@ -166,6 +166,21 @@
         function setUp(btn){
             document.getElementById(btn).disabled = false;
             document.getElementById(btn).style.backgroundColor = "#0FBF6D";
+        }
+        function audio(btn){
+            $.ajax({
+                type: 'POST',
+                url: '/flicker'
+            });
+            flickercount--;
+            if(flickercount == 0){
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            } 
+            document.getElementById(btn).disabled = true; // disable button when pressed for x seconds - setTimeout
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); // enable button again
         }
     </script>
 </html>
