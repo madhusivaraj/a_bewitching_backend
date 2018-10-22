@@ -4,6 +4,7 @@ import json
 import config
 import boto3
 from flask import Flask, render_template, request, jsonify
+import time
 
 app = Flask(__name__)
 #client = boto3.client('sns')
@@ -82,8 +83,17 @@ def doll():
 @app.route('/e', methods=['POST'])
 def e():
     try:
-        action_dict = {"action":"doll"}
-        send_message(json.dumps(action_dict),"action")
+        #action_dict = {"action":"doll"}
+
+        send_message(json.dumps({"action":"doll"}),"doll")
+	sleep(5)	
+        send_message(json.dumps({"action":"doll"}),"doll")
+	sleep(5)
+        send_message(json.dumps({"action":"doll"}),"doll")
+	sleep(5)
+        send_message(json.dumps({"action":"doll"}),"doll")
+	sleep(5)
+        send_message(json.dumps({"action":"doll"}),"doll")
         return jsonify(success=True)
     except:
         return jsonify(success=False)
