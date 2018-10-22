@@ -7,10 +7,8 @@ body {
 
 button {
 	background-color: #aa2a2a;
-	/*background-color: #0FBF6D;*/
 	box-shadow: 7px 10px 20px none;
-	/*box-shadow: 7px 10px 20px #FF8C00;*/
-	border-color: #000000;
+	border-color: black;
 	border-radius: 10px;
 	height: 150px;
 	width: 250px;
