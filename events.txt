@@ -3,12 +3,21 @@ EVENTS
 2. drop masks
 3. illuminate mirror
 4. flash shadow
-
 3. footsteps sound
 2. scream
 3. sounds ...
 4. turn doll head
 5. turn tv on
 
-8.
-9. 
+
+WE NEED:
+1. 2 old power cables for:
+    a. Dolls (stepper motors work better the more power they get)
+    b. Solenoid (requires 12v battery)
+2. Four additional dolls
+3. New wooden adapters for the dolls
+    a. Screws to hold the pieces to the stepper
+4. String+black canvas for mask drop
+5. Old TV and small chair for tv doll to sit in
+6. Extension cables for lighting rig
+7. Single bulb light (Non LED)
