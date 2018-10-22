@@ -111,12 +111,10 @@
             });
             shadowcount--;
             if(shadowcount == 0){
-                document.getElementById(btn).disabled = true;
-                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                disable(btn);
                 return;
             } 
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            disable(btn);
             setTimeout(setUp, 2000, btn); 
         }
         function fog(btn){
@@ -126,12 +124,10 @@
             });
             fogcount--;
             if(fogcount == 0){
-                document.getElementById(btn).disabled = true;
-                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                disable(btn);
                 return;
             } 
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            disable(btn);
             setTimeout(setUp, 2000, btn); 
         }
         function coffin(btn){
@@ -141,12 +137,10 @@
             });
             coffincount--;
             if(coffincount == 0){
-                document.getElementById(btn).disabled = true;
-                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                disable(btn);
                 return;
             } 
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            disable(btn);
             setTimeout(setUp, 2000, btn); 
         }
         function doll(btn){
@@ -156,14 +150,13 @@
             });
             dollcount--;
             if(dollcount == 0){
-                document.getElementById(btn).disabled = true;
-                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                disable(btn);
                 return;
             } 
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            disable(btn);
             setTimeout(setUp, 2000, btn); 
         }
+        
         function setUp(btn){
             document.getElementById(btn).disabled = false;
             document.getElementById(btn).style.backgroundColor = "#0FBF6D";
