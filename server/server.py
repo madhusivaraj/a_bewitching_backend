@@ -6,7 +6,7 @@ import boto3
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
-client = boto3.client('sns')
+#client = boto3.client('sns')
 
 @app.route('/')
 def index():
