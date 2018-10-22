@@ -1,18 +1,21 @@
 body {
-	background-color: black;
+	background-color: #1c1c1c;
 	font-family: 'Roboto', sans-serif;
 }
 
 /* input.btn:active { background:green; } */
 
 button {
-	background-color: #0FBF6D;
-	box-shadow: 7px 10px 20px #FF8C00;
+	background-color: #aa2a2a;
+	/*background-color: #0FBF6D;*/
+	box-shadow: 7px 10px 20px none;
+	/*box-shadow: 7px 10px 20px #FF8C00;*/
+	border-color: #000000;
 	border-radius: 10px;
 	height: 150px;
 	width: 250px;
 	font-size: 30px;
-	color: white;
+	color: #e9ebee;
 }
 
 .button-row button{

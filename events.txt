@@ -1,0 +1,10 @@
+EVENTS
+1. footsteps sound
+2. scream
+3. sounds ...
+4. turn doll head
+5. turn tv on
+6. flash shadow
+7. drop masks
+8. lightning
+9. illuminate mirror
