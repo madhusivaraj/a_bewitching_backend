@@ -7,7 +7,7 @@ body {
 
 button {
 	background-color: #0FBF6D;
-	box-shadow: 7px 10px 20px #FF8C00;
+	box-shadow: 7px 10px 20px #;
 	border-radius: 10px;
 	height: 150px;
 	width: 250px;
@@ -15,12 +15,10 @@ button {
 	color: white;
 }
 
-button.press:active { background-color: #ff7f00; } 
-
 .button-row button{
   margin: 1em;
 }
 .button-container{
   margin: auto;
-  padding: 10% 10% 10% 10%;
+  padding: 10% 10% 10% 10%; 
 }
