@@ -34,6 +34,9 @@ TO BUY:
 7. drop masks
 8. lightning
 9. illuminate mirror
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
