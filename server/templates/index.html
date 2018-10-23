@@ -50,162 +50,161 @@
     <button id="reset" onClick="popup()" href="url_for('e')" style="background-color: white;height:30px;width: 50px;text-align: center;position: absolute;top: 90%;right: 55%;font-size: 10px;">START</button>
 
     <button id="reset" onClick="popup()" href="url_for('index')" style="background-color: white;height:30px;width: 50px;text-align: center;position: absolute;top: 90%;right: 45%;font-size: 10px;">STOP</button>
+
+    <script type="text/javascript">
+        var lightningcount = 3;
+        var maskcount = 1; // zipline
+        var mirrorcount = 3;
+        var flashcount = 3;
+        var footstepscount = 3;
+        var soundscount = 3;
+        var screamcount = 3;
+        var dollcount = 3;
+        var tvcount = 3;
+
+        function lightning(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/flicker'
+            });
+            lightningcount--;
+            if (lightningcount == 0) {
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            }
+            document.getElementById(btn).disabled = true; // disable button when pressed for x seconds - setTimeout
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn); // enable button again
+        }
+        function mask(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/clown'
+            });
+            maskcount--;
+            if (maskcount == 0) {
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            }
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn);
+        }
+        function mirror(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/blinds'
+            });
+            mirrorcount--;
+            if (mirrorcount == 0) {
+                document.getElementById(btn).disabled = true;
+                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                return;
+            }
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            setTimeout(setUp, 2000, btn);
+        }
+        function flash(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/shadow'
+            });
+            flashcount--;
+            if (flashcount == 0) {
+                disable(btn);
+                return;
+            }
+            disable(btn);
+            setTimeout(setUp, 2000, btn);
+        }
+        function footsteps(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/fog'
+            });
+            footstepscount--;
+            if (footstepscount == 0) {
+                disable(btn);
+                return;
+            }
+            disable(btn);
+            setTimeout(setUp, 2000, btn);
+        }
+        function sounds(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/sounds'
+            });
+            soundscount--;
+            if (soundscount == 0) {
+                disable(btn);
+                return;
+            }
+            disable(btn);
+            setTimeout(setUp, 2000, btn);
+        }
+        function scream(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/doll'
+            });
+            screamcount--;
+            if (screamcount == 0) {
+                disable(btn);
+                return;
+            }
+            disable(btn);
+            setTimeout(setUp, 2000, btn);
+        }
+        function doll(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/doll'
+            });
+            dollcount--;
+            if (dollcount == 0) {
+                disable(btn);
+                return;
+            }
+            disable(btn);
+            setTimeout(setUp, 2000, btn);
+        }
+        function tv(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/doll'
+            });
+            tvcount--;
+            if (tvcount == 0) {
+                disable(btn);
+                return;
+            }
+            disable(btn);
+            setTimeout(setUp, 2000, btn);
+        }
+
+        function setUp(btn) {
+            document.getElementById(btn).disabled = false;
+            document.getElementById(btn).style.backgroundColor = "#aa2a2a";
+        }
+        function disableAll(ids) {
+            ids.forEach(disable);
+        }
+        function disable(btn) {
+            document.getElementById(btn).disabled = true;
+            document.getElementById(btn).style.backgroundColor = "#b1bac9";
+        }
+        function popup() {
+            var password = prompt('Please enter the password: ');
+            if (password != '1234') {
+                alert('You are not authorized to use this feature.');
+            }
+        }
+
+    </script>
 </body>
-
-<script type="text/javascript">
-    var lightningcount = 3;
-    var maskcount = 1; // zipline
-    var mirrorcount = 3;
-    var flashcount = 3;
-    var footstepscount = 3;
-    var soundscount = 3;
-    var screamcount = 3;
-    var dollcount = 3;
-    var tvcount = 3;
-
-    function lightning(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/flicker'
-        });
-        lightningcount--;
-        if (lightningcount == 0) {
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
-            return;
-        }
-        document.getElementById(btn).disabled = true; // disable button when pressed for x seconds - setTimeout
-        document.getElementById(btn).style.backgroundColor = "#b1bac9";
-        setTimeout(setUp, 2000, btn); // enable button again
-    }
-    function mask(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/clown'
-        });
-        maskcount--;
-        if (maskcount == 0) {
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
-            return;
-        }
-        document.getElementById(btn).disabled = true;
-        document.getElementById(btn).style.backgroundColor = "#b1bac9";
-        setTimeout(setUp, 2000, btn);
-    }
-    function mirror(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/blinds'
-        });
-        mirrorcount--;
-        if (mirrorcount == 0) {
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
-            return;
-        }
-        document.getElementById(btn).disabled = true;
-        document.getElementById(btn).style.backgroundColor = "#b1bac9";
-        setTimeout(setUp, 2000, btn);
-    }
-    function flash(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/shadow'
-        });
-        flashcount--;
-        if (flashcount == 0) {
-            disable(btn);
-            return;
-        }
-        disable(btn);
-        setTimeout(setUp, 2000, btn);
-    }
-    function footsteps(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/fog'
-        });
-        footstepscount--;
-        if (footstepscount == 0) {
-            disable(btn);
-            return;
-        }
-        disable(btn);
-        setTimeout(setUp, 2000, btn);
-    }
-    function sounds(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/sounds'
-        });
-        soundscount--;
-        if (soundscount == 0) {
-            disable(btn);
-            return;
-        }
-        disable(btn);
-        setTimeout(setUp, 2000, btn);
-    }
-    function scream(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/doll'
-        });
-        screamcount--;
-        if (screamcount == 0) {
-            disable(btn);
-            return;
-        }
-        disable(btn);
-        setTimeout(setUp, 2000, btn);
-    }
-    function doll(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/doll'
-        });
-        dollcount--;
-        if (dollcount == 0) {
-            disable(btn);
-            return;
-        }
-        disable(btn);
-        setTimeout(setUp, 2000, btn);
-    }
-    function tv(btn) {
-        $.ajax({
-            type: 'POST',
-            url: '/doll'
-        });
-        tvcount--;
-        if (tvcount == 0) {
-            disable(btn);
-            return;
-        }
-        disable(btn);
-        setTimeout(setUp, 2000, btn);
-    }
-
-
-    function setUp(btn) {
-        document.getElementById(btn).disabled = false;
-        document.getElementById(btn).style.backgroundColor = "#aa2a2a";
-    }
-    function disableAll(ids) {
-        ids.forEach(disable);
-    }
-    function disable(btn) {
-        document.getElementById(btn).disabled = true;
-        document.getElementById(btn).style.backgroundColor = "#b1bac9";
-    }
-    function popup() {
-        var password = prompt('Please enter the password: ');
-        if (password != '1234') {
-            alert('You are not authorized to use this feature.');
-        }
-    }
-
-</script>
 
 </html>
