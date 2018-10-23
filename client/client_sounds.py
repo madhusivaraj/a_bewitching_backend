@@ -4,8 +4,6 @@ import glog as log
 sys.path.insert(0, "../")
 import config
 import boto3
-from gpiozero import LED
-led = LED(17)
 
 CLIENT_WAIT_TIME=20
 
@@ -31,7 +29,10 @@ while(True):
         receipt_handle = message['ReceiptHandle']
 
         print(body, end="\n\n")
-        led.on()
+        action = json.dumps(body)
+        if (action['action'] == 'footsteps'):
+            sound_path = "../media/foootsteps.mp3"
+            play_sound(sound_path)
         client.delete_message(
             QueueUrl=config.sqs_url,
             ReceiptHandle=receipt_handle
@@ -39,3 +40,7 @@ while(True):
     else:
         #print(response, end="\n\n")
         pass
+def play_sound(path):
+        sound_path = "../media/foootsteps.mp3"
+        os.system("omxplayer --vol 1000 " + path)
+
