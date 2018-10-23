@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, jsonify, url_for
 import time
 
 app = Flask(__name__)
-#client = boto3.client('sns')
+client = boto3.client('sns')
 
 @app.route('/')
 def index():
@@ -52,10 +52,11 @@ def shadow():
     except:
         return jsonify(success=False)
 
-@app.route('/fog', methods=['POST'])
+@app.route('/sounds', methods=['POST'])
 def fog():
     try:    
-        action_dict = {"action":"fog"}
+        print("done")
+        action_dict = {"action":"footsteps"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
     except:
@@ -106,11 +107,13 @@ def e():
         return jsonify(success=False)
 
 def send_message(msg,subject:str):
-    client.publish(
+  print("hello?")
+  a =  client.publish(
             TopicArn = config.sns_arn,
             Message = msg,
             Subject = subject,
             MessageStructure = 'string'
         )
+  print(a)
 if __name__ == '__main__':
     app.run(debug=True)
