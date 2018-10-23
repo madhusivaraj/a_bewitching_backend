@@ -1,6 +1,7 @@
 import os
 import sys
 import glog as log
+import json
 sys.path.insert(0, "../")
 import config
 import boto3
@@ -27,8 +28,7 @@ while(True):
         message = response['Messages'][0]
         body = message['Body']
         receipt_handle = message['ReceiptHandle']
-
-        print(body, end="\n\n")
+        #print(body, end="\n\n")
         action = json.dumps(body)
         if (action['action'] == 'footsteps'):
             sound_path = "../media/foootsteps.mp3"
