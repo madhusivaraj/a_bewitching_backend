@@ -8,6 +8,7 @@ EVENTS
 3. sounds ...
 4. turn doll head
 5. turn tv on
+<<<<<<< Updated upstream
 
 
 WE NEED:
@@ -28,3 +29,15 @@ TO BUY:
 3. String for mask drop
 4. Single bulb (non-led) light
 5. Old laptop power cables
+=======
+6. flash shadow
+7. drop masks
+8. lightning
+9. illuminate mirror
+>>>>>>> Stashed changes
+
+
+NEED TO ACQUIRE:
+1. Black Fabric (for masks)
+2. String
+3. 
