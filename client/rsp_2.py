@@ -11,4 +11,8 @@ def silhouette_pin_on():
 
 def silhouette_pin_off():
 	GPIO.output(silhouette_pin, False)
-  
+
+def silhouette_event():
+	silhouette_pin_on()
+	time.sleep(3)
+	silhouette_pin_off()
