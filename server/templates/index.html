@@ -20,8 +20,8 @@
                     onmouseup="this.style.background='#aa2a2a'" type="submit">DROP THE MASK</button>
             </div>
             <div class="button-row">
-                <button id="mirrorButton" onClick="mirror('mirrorButton')" onmousedown="this.style.background='#e21304'"
-                    onmouseup="this.style.background='#aa2a2a'" type="submit">ILLUMINATE MIRROR</button>
+                <button id="tvButton" onClick="turn_on_tv('tvButton')" onmousedown="this.style.background='#e21304'"
+                    onmouseup="this.style.background='#aa2a2a'" type="submit">TURN ON TV </button>
 
                 <button id="flashButton" onClick="flash('flashButton')" onmousedown="this.style.background='#e21304'"
                     onmouseup="this.style.background='#aa2a2a'" type="submit">FLASH SHADOW</button>
@@ -103,22 +103,22 @@
             disable(btn); // disable current button
             setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
         }
-        function mirror(btn) {
+        function turn_on_tv(btn) {
             $.ajax({
                 type: 'POST',
-                url: '/blinds'
+                url: '/turn_on_tv'
             });
             
             disableAll(list); // disable all BUT the current button
-            var index = list.indexOf("mirrorButton"); // find index of curr id
+            var index = list.indexOf("tvButton"); // find index of curr id
             list.splice(index, 1); // remove that id
             setTimeout(setUpAll, 10000, list); // disable all but that one button
-            list.push("mirrorButton");
+            list.push("tvButton");
 
-            mirrorcount--;
-            if (mirrorcount == 0) {
+            tvcount--;
+            if (tvcount == 0) {
                 disable(btn);
-                var index = list.indexOf("mirrorButton"); // remove from list so itll never be enabled again
+                var index = list.indexOf("tvButton"); // remove from list so itll never be enabled again
                 list.splice(index, 1);
                 return;
             }

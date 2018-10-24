@@ -13,31 +13,10 @@ client = boto3.client('sns')
 def index():
     return render_template('index.html')
 
-
-
-@app.route('/flicker', methods=['POST'])
-def flicker():
-    #push to sns
+@app.route('/turn_on_tv', methods=['POST'])
+def turn_on_tv():
     try:
-        action_dict = {"action":"flicker"}
-        send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-
-@app.route('/clown', methods=['POST'])
-def clown():
-    try:
-        action_dict = {"action":"clown"}
-        send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-
-@app.route('/blinds', methods=['POST'])
-def blinds():
-    try:
-        action_dict = {"action":"blinds"}
+        action_dict = {"action":"turn_on_tv"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
     except:
