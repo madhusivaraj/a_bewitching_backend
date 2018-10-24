@@ -40,6 +40,7 @@ def footsteps_sound():
 
 def silhouette_event():
 	footsteps_sound()
+	time.sleep(1)
 	silhouette_pin_on()
 	time.sleep(2)
 	silhouette_pin_off()
