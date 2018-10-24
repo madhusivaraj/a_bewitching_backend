@@ -89,32 +89,6 @@ def tv():
     except:
         return jsonify(success=False)
 
-# automated sequence
-@app.route('/e', methods=['POST'])
-def e():
-    try:
-        # default sequence (change actions and times)
-        send_message(json.dumps({"action":"lightning"}),"lightning")
-        sleep(5)
-        send_message(json.dumps({"action":"mask"}),"mask")
-        sleep(5)
-        send_message(json.dumps({"action":"mirror"}),"mirror")
-        sleep(5)
-        send_message(json.dumps({"action":"flash"}),"flash")
-        sleep(5)
-        send_message(json.dumps({"action":"footsteps"}),"footsteps")
-        sleep(5)
-        send_message(json.dumps({"action":"sounds"}),"sounds")
-        sleep(5)
-        send_message(json.dumps({"action":"screams"}),"screams")
-        sleep(5)
-        send_message(json.dumps({"action":"doll"}),"doll")
-        sleep(5)
-        send_message(json.dumps({"action":"tv"}),"tv")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-
 def send_message(msg,subject:str):
   print("hello?")
   a =  client.publish(
