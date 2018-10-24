@@ -1,6 +1,5 @@
 import os
 import sys
-import glog as log
 import json
 import subprocess 
 import time
