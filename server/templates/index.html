@@ -47,10 +47,6 @@
         </div>
     </div>
 
-    <button id="reset" onClick="popup()" href="url_for('e')" style="background-color: white;height:30px;width: 50px;text-align: center;position: absolute;top: 90%;right: 55%;font-size: 10px;">START</button>
-
-    <button id="reset" onClick="popup()" href="url_for('index')" style="background-color: white;height:30px;width: 50px;text-align: center;position: absolute;top: 90%;right: 45%;font-size: 10px;">STOP</button>
-
     <script type="text/javascript">
         var lightningcount = 3;
         var maskcount = 1; // zipline
@@ -61,12 +57,15 @@
         var screamcount = 3;
         var dollcount = 3;
         var tvcount = 3;
+        var list = ["lightningButton", "dropMaskButton", "mirrorButton", "flashButton", "footstepsButton", "soundsButton", "screamButton", "dollButton", "tvButton"];
 
         function lightning(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/flicker'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             lightningcount--;
             if (lightningcount == 0) {
                 document.getElementById(btn).disabled = true;
@@ -82,6 +81,8 @@
                 type: 'POST',
                 url: '/clown'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             maskcount--;
             if (maskcount == 0) {
                 document.getElementById(btn).disabled = true;
@@ -97,6 +98,8 @@
                 type: 'POST',
                 url: '/blinds'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             mirrorcount--;
             if (mirrorcount == 0) {
                 document.getElementById(btn).disabled = true;
@@ -112,6 +115,8 @@
                 type: 'POST',
                 url: '/shadow'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             flashcount--;
             if (flashcount == 0) {
                 disable(btn);
@@ -125,6 +130,8 @@
                 type: 'POST',
                 url: '/fog'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             footstepscount--;
             if (footstepscount == 0) {
                 disable(btn);
@@ -138,6 +145,8 @@
                 type: 'POST',
                 url: '/sounds'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             soundscount--;
             if (soundscount == 0) {
                 disable(btn);
@@ -151,6 +160,8 @@
                 type: 'POST',
                 url: '/doll'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             screamcount--;
             if (screamcount == 0) {
                 disable(btn);
@@ -164,6 +175,8 @@
                 type: 'POST',
                 url: '/doll'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             dollcount--;
             if (dollcount == 0) {
                 disable(btn);
@@ -177,6 +190,8 @@
                 type: 'POST',
                 url: '/doll'
             });
+            disableAll(list);
+            setTimeout(setUpAll, 10000, list);
             tvcount--;
             if (tvcount == 0) {
                 disable(btn);
@@ -189,6 +204,9 @@
         function setUp(btn) {
             document.getElementById(btn).disabled = false;
             document.getElementById(btn).style.backgroundColor = "#aa2a2a";
+        }
+        function setUpAll(list) {
+            list.forEach(setUp);
         }
         function disableAll(ids) {
             ids.forEach(disable);
