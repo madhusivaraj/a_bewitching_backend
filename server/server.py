@@ -43,10 +43,10 @@ def blinds():
     except:
         return jsonify(success=False)
 
-@app.route('/shadow', methods=['POST'])
-def shadow():
+@app.route('/silhouette_event', methods=['POST'])
+def silhouette_event():
     try:
-        action_dict = {"action":"shadow"}
+        action_dict = {"action":"silhouette_event"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
     except:
@@ -98,5 +98,6 @@ def send_message(msg,subject:str):
             MessageStructure = 'string'
         )
   print(a)
+
 if __name__ == '__main__':
     app.run(debug=True)
