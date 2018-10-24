@@ -64,141 +64,198 @@
                 type: 'POST',
                 url: '/flicker'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("lightningButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("lightningButton");
+
             lightningcount--;
-            if (lightningcount == 0) {
-                document.getElementById(btn).disabled = true;
-                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+            if (lightningcount == 0) { // if button has been pressed too many times, disable it permanently
+                disable(btn);
+                var index = list.indexOf("lightningButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1); 
                 return;
             }
-            document.getElementById(btn).disabled = true; // disable button when pressed for x seconds - setTimeout
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
-            setTimeout(setUp, 2000, btn); // enable button again
+            disable(btn); // disable current button
+            setTimeout(setUp, Math.max(2000, 4000), btn); // enable button again
         }
         function mask(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/clown'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("dropMaskButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("dropMaskButton");
+
             maskcount--;
             if (maskcount == 0) {
-                document.getElementById(btn).disabled = true;
-                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                disable(btn);
+                var index = list.indexOf("dropMaskButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1);
                 return;
             }
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
-            setTimeout(setUp, 2000, btn);
+            disable(btn); // disable current button
+            setTimeout(setUp, Math.max(2000, 4000), btn); // enable button again
         }
         function mirror(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/blinds'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("mirrorButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("mirrorButton");
+
             mirrorcount--;
             if (mirrorcount == 0) {
-                document.getElementById(btn).disabled = true;
-                document.getElementById(btn).style.backgroundColor = "#b1bac9";
+                disable(btn);
+                var index = list.indexOf("mirrorButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1);
                 return;
             }
-            document.getElementById(btn).disabled = true;
-            document.getElementById(btn).style.backgroundColor = "#b1bac9";
-            setTimeout(setUp, 2000, btn);
+            disable(btn);
+            setTimeout(setUp, Math.max(4000, 2000), btn);
         }
         function flash(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/shadow'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("flashButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("flashButton");
+
             flashcount--;
             if (flashcount == 0) {
                 disable(btn);
+                var index = list.indexOf("flashButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1); // remove that id
                 return;
             }
             disable(btn);
-            setTimeout(setUp, 2000, btn);
+            setTimeout(setUp, Math.max(4000, 2000), btn);
         }
         function footsteps(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/fog'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+           
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("footstepsButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("footstepsButton");
+
             footstepscount--;
             if (footstepscount == 0) {
                 disable(btn);
+                var index = list.indexOf("footstepsButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1); // remove that id
                 return;
             }
             disable(btn);
-            setTimeout(setUp, 2000, btn);
+            setTimeout(setUp, Math.max(4000, 2000), btn);
         }
         function sounds(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/sounds'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("soundsButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("soundsButton");
+
             soundscount--;
             if (soundscount == 0) {
                 disable(btn);
+                var index = list.indexOf("soundsButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1); // remove that id
                 return;
             }
             disable(btn);
-            setTimeout(setUp, 2000, btn);
+            setTimeout(setUp, Math.max(4000, 2000), btn);
         }
         function scream(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/doll'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("screamButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("screamButton");
+
             screamcount--;
             if (screamcount == 0) {
                 disable(btn);
+                var index = list.indexOf("screamButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1); // remove that id
                 return;
             }
             disable(btn);
-            setTimeout(setUp, 2000, btn);
+            setTimeout(setUp, Math.max(4000, 2000), btn);
         }
         function doll(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/doll'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("dollButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("dollButton");
+
             dollcount--;
             if (dollcount == 0) {
                 disable(btn);
+                var index = list.indexOf("dollButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1); // remove that id
                 return;
             }
             disable(btn);
-            setTimeout(setUp, 2000, btn);
+            setTimeout(setUp, Math.max(4000, 2000), btn);
         }
         function tv(btn) {
             $.ajax({
                 type: 'POST',
-                url: '/doll'
+                url: '/tv'
             });
-            disableAll(list);
-            setTimeout(setUpAll, 10000, list);
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("tvButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 4000, list); // disable all but that one button
+            list.push("tvButton");
+
             tvcount--;
             if (tvcount == 0) {
                 disable(btn);
+                var index = list.indexOf("tvButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1); // remove that id
                 return;
             }
             disable(btn);
-            setTimeout(setUp, 2000, btn);
+            setTimeout(setUp, Math.max(4000, 2000), btn);
         }
 
         function setUp(btn) {

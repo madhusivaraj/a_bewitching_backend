@@ -80,6 +80,15 @@ def doll():
     except:
         return jsonify(success=False)
 
+@app.route('/tv', methods=['POST'])
+def tv():
+    try:
+        action_dict = {"action":"tv"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
 # automated sequence
 @app.route('/e', methods=['POST'])
 def e():
