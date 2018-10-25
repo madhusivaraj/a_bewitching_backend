@@ -1,3 +1,9 @@
+###############################
+# RSP 2 CONTROLS:
+#    1) FLOODLIGHT TO ILLUMINATE MANNEQUINS
+#    2_ SPEAKERS BY THE WINDOW
+##############################
+
 import os
 import sys
 import json
@@ -24,7 +30,9 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(silhouette_pin, GPIO.OUT)
 # This turns the pins off
 
-silhouette_sound = '../media/footsteps.mp3'
+welcome_sound = '../media/creepy_whisper.mp3'
+child_laugh = '../media/child_laugh_sound.mp3'
+mutter_sounds = '../media/mutters.mp3'
 
 def cleanup():
 	GPIO.cleanup()
@@ -35,14 +43,18 @@ def silhouette_pin_on():
 def silhouette_pin_off():
 	GPIO.output(silhouette_pin, False)
 
-def footsteps_sound():
-	subprocess.Popen(['omxplayer', silhouette_sound, '&'])
+def welcome():
+	subprocess.Popen(['omxplayer', welcome_sound, '&'])
+
+def play_child_laugh():
+	subprocess.Popen(['omxplayer', child_laugh, '&'])
+
+def play_mutters():
+	subprocess.Popen(['omxplayer', mutters, '&'])
 
 def silhouette_event():
-	footsteps_sound()
-	time.sleep(1)
-	silhouette_pin_on()
-	time.sleep(2)
+    silhouette_pin_on()
+	time.sleep(4)
 	silhouette_pin_off()
 
 
@@ -72,8 +84,36 @@ try:
 
 			action = json.loads(data['Message'])
 			if 'action' in action:
-				if (action['action'] == 'silhouette_event'):
+			
+                if (action['action'] == 'silhouette_event'):
 					silhouette_event()
+					
+					#only delete if we have to
+					client.delete_message(
+						QueueUrl=config.sqs_url,
+						ReceiptHandle=receipt_handle
+					)
+                
+				if (action['action'] == 'pi2_child_laughs'):
+					play_child_laugh()
+					
+					#only delete if we have to
+					client.delete_message(
+						QueueUrl=config.sqs_url,
+						ReceiptHandle=receipt_handle
+					)
+
+				if (action['action'] == 'play_mutters'):
+					play_mutters()
+					
+					#only delete if we have to
+					client.delete_message(
+						QueueUrl=config.sqs_url,
+						ReceiptHandle=receipt_handle
+					)
+
+				if (action['action'] == 'pi2_welcome'):
+					welcome()
 					
 					#only delete if we have to
 					client.delete_message(

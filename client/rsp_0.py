@@ -91,7 +91,7 @@ while(True):
                 )
 
             #Speaker event: welcome
-            if (action['action'] == 'welcome'):
+            if (action['action'] == 'pi0_welcome'):
                 sound_path = "../media/welcome.mp3"
 
                 #Open subprocess to play sound
