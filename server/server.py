@@ -18,7 +18,7 @@ def index():
 # Pi 2: Play welcome track
 # IP: turn on lights
 @app.route('/welcome', methods=['POST'])
-def welcome()
+def welcome():
     try:
         action_dict = {"action":"pi0_welcome"}
         send_message(json.dumps(action_dict),"action")
@@ -131,7 +131,7 @@ def doll():
 # IP: release magnets 
 # Pi 2: play mutters.mp3
 @app.route('/masks', methods=['POST'])
-def doll():
+def masks():
     try:
         action_dict = {"action":"drop_masks"}
         send_message(json.dumps(action_dict),"action")

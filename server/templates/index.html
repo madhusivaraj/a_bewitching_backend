@@ -12,6 +12,9 @@
 <body>
     <div class="button-container">
             <div class="button-row">
+
+
+                                                <!-- WELCOME -->
                 <button id ="welcomeButton" onClick="welcome('welcomeButton')" onmousedown="this.style.background='#e21304'"
                 onmouseup="this.style.background='#aa2a2a'" type="submit"> BE GRACIOUS: WELCOME YOUR GUESTS</button>
             </div>
@@ -47,13 +50,10 @@
     </div>
 
     <script type="text/javascript">
-        var lightningcount = 3;
         var maskcount = 1; // zipline
-        var mirrorcount = 3;
+        var welcomecount = 3;
         var flashcount = 3;
         var footstepscount = 3;
-        var soundscount = 3;
-        var screamcount = 3;
         var dollcount = 3;
         var tvcount = 3;
         var list = ["dropMaskButton", "flashButton", "dollButton", "tvButton", "welcomeButton"];
@@ -62,7 +62,7 @@
         function mask(btn) {
             $.ajax({
                 type: 'POST',
-                url: '/clown'
+                url: '/masks'
             });
             
             disableAll(list); // disable all BUT the current button
