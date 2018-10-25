@@ -13,10 +13,44 @@ client = boto3.client('sns')
 def index():
     return render_template('index.html')
 
+
 @app.route('/turn_on_tv', methods=['POST'])
 def turn_on_tv():
     try:
         action_dict = {"action":"turn_on_tv"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
+    try:
+        action_dict = {"action":"play_static_sounds"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
+
+#Turning off lights 
+@app.route('/turn_off_lights', methods=['POST'])
+def turn_off_lights():
+    try: 
+        action_dict = {"action":"turn_off_lights"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
+    try: 
+        action_dict = {"action":"play_music_box_1"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
+    
+    try: 
+        action_dict = {"action":"play_music_box_2"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
     except:
@@ -31,24 +65,6 @@ def silhouette_event():
     except:
         return jsonify(success=False)
 
-@app.route('/sounds', methods=['POST'])
-def fog():
-    try:    
-        print("done")
-        action_dict = {"action":"footsteps"}
-        send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-
-@app.route('/coffin', methods=['POST'])
-def coffin():
-    try:
-        action_dict = {"action":"coffin"}
-        send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
 
 @app.route('/doll', methods=['POST'])
 def doll():
@@ -59,10 +75,39 @@ def doll():
     except:
         return jsonify(success=False)
 
-@app.route('/tv', methods=['POST'])
-def tv():
     try:
-        action_dict = {"action":"tv"}
+        action_dict = {"action":"play_child_laughs_2"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
+    try:
+        action_dict = {"action":"play_child_laughs_2"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
+@app.route('/masks', methods=['POST'])
+def doll():
+    try:
+        action_dict = {"action":"drop_masks"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+    
+    try:
+        action_dict = {"action":"play_whispers"}
+        send_message(json.dumps(action_dict),"action")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
+    try:
+        #Second whispers event for second raspberry pi
+        action_dict = {"action":"play_whispers_2"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
     except:
