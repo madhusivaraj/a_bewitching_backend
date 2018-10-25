@@ -44,6 +44,16 @@
                     <button id="dollButton" onClick="doll('dollButton')" onmousedown="this.style.background='#e21304'"
                         onmouseup="this.style.background='#aa2a2a'" type="submit">TURN THE DOLL HEAD</button>
             </div>
+
+            <div class="button-row">
+                    <button id="lightsOn" onClick="on('lightsOn')" onmousedown="this.style.background='#e21304'"
+                        onmouseup="this.style.background='#aa2a2a'" type="submit">TURN THE LIGHTS ON</button>
+            </div>
+
+            <div class="button-row">
+                    <button id="lightsOff" onClick="off('lightsOff')" onmousedown="this.style.background='#e21304'"
+                        onmouseup="this.style.background='#aa2a2a'" type="submit">TURN THE LIGHTS OFF</button>
+            </div>
             
 
         </div>
@@ -56,7 +66,45 @@
         var footstepscount = 3;
         var dollcount = 3;
         var tvcount = 3;
-        var list = ["dropMaskButton", "flashButton", "dollButton", "tvButton", "welcomeButton"];
+        var list = ["dropMaskButton", "flashButton", "dollButton", "tvButton", "welcomeButton", "lightsOff", "lightsOn"];
+
+        /* LIGHTS ON */
+        function on(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/turn_on_lights'
+            });
+            
+            /*
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("lightsOn"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 10000, list); // disable all but that one button
+            list.push("lightsOn");
+          
+            disable(btn); // disable current button
+            setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
+            */
+        }
+
+        /* LIGHTS OFF */
+        function off(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/turn_off_lights'
+            });
+            
+            /*
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("lightsOff"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 10000, list); // disable all but that one button
+            list.push("lightsOff");
+
+            disable(btn); // disable current button
+            setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
+            */
+        }
 
         /* WELCOME BUTTON */
         function welcome(btn) {

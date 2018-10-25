@@ -58,8 +58,16 @@ def turn_off_lights():
         action_dict = {"action":"turn_off_lights"}
         send_message(json.dumps(action_dict),"action")
         
-        action_dict = {"action":"play_shriek"}
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
+
+@app.route('/turn_on_lights', methods=['POST'])
+def turn_on_lights():
+    try: 
+        action_dict = {"action":"turn_on_lights"}
         send_message(json.dumps(action_dict),"action")
+        
         return jsonify(success=True)
     except:
         return jsonify(success=False)
