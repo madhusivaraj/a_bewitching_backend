@@ -50,13 +50,37 @@
     </div>
 
     <script type="text/javascript">
-        var maskcount = 1; // zipline
-        var welcomecount = 3;
+        var maskcount = 1;
+        var wCount = 1;
         var flashcount = 3;
         var footstepscount = 3;
         var dollcount = 3;
         var tvcount = 3;
         var list = ["dropMaskButton", "flashButton", "dollButton", "tvButton", "welcomeButton"];
+
+        /* WELCOME BUTTON */
+        function welcome(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/welcome'
+            });
+            
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("welcomeButton"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 10000, list); // disable all but that one button
+            list.push("welcomeButton");
+
+            wCount--;
+            if (wCount == 0) {
+                disable(btn);
+                var index = list.indexOf("welcomeButton"); // remove from list so itll never be enabled again
+                list.splice(index, 1);
+                return;
+            }
+            disable(btn); // disable current button
+            setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
+        }
 
         /* DROPS MASKS */
         function mask(btn) {
@@ -92,7 +116,7 @@
             disableAll(list); // disable all BUT the current button
             var index = list.indexOf("tvButton"); // find index of curr id
             list.splice(index, 1); // remove that id
-            setTimeout(setUpAll, 10000, list); // disable all but that one button
+            setTimeout(setUpAll, 20000, list); // disable all but that one button
             list.push("tvButton");
 
             tvcount--;
