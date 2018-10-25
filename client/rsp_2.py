@@ -17,7 +17,7 @@ import boto3
 
 import RPi.GPIO as GPIO
 
-CLIENT_WAIT_TIME=20
+CLIENT_WAIT_TIME=1
 
 # Create SQS client
 client = boto3.client('sqs')

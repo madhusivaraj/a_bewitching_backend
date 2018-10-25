@@ -15,7 +15,7 @@ import boto3
 import subprocess
 import trigger
 
-CLIENT_WAIT_TIME=20
+CLIENT_WAIT_TIME=1
 
 # Create SQS client
 client = boto3.client('sqs')
@@ -55,8 +55,8 @@ while(True):
                 video = "../media/static_video.mp4"
 
                 #Open subprocess to play static.mp4 at the same time as static_noise.mp3
-                subprocess.Popen([trigger.TV, video])
-                subprocess.Popen([trigger.audio, sound_path])
+                subprocess.Popen(['omxplayer', '-b', video, '&'])
+                subprocess.Popen(['omxplayer', '-o', 'local', sound_path, '&'])
                 
                 #only delete if we have to
                 client.delete_message(
@@ -69,7 +69,7 @@ while(True):
                 sound_path = "../media/child_laughs.mp3"
 
                 #Open subprocess to play sound
-                subprocess.Popen([trigger.audio, sound_path])
+                subprocess.Popen(['omxplayer', '-o', 'local', sound_path, '&'])
                 
                 #only delete if we have to
                 client.delete_message(
@@ -82,7 +82,7 @@ while(True):
                 sound_path = "../media/creepy_whisper.mp3"
 
                 #Open subprocess to play sound
-                subprocess.Popen([trigger.audio, sound_path])
+                subprocess.Popen(['omxplayer', '-o', 'local', sound_path, '&'])
                 
                 #only delete if we have to
                 client.delete_message(
@@ -92,10 +92,10 @@ while(True):
 
             #Speaker event: welcome
             if (action['action'] == 'pi0_welcome'):
-                sound_path = "../media/welcome.mp3"
+                sound_path = "../media/creepy_whisper.mp3"
 
                 #Open subprocess to play sound
-                subprocess.Popen([trigger.audio, sound_path])
+                subprocess.Popen(['omxplayer', '-o', 'local', sound_path, '&'])
                 
                 #only delete if we have to
                 client.delete_message(
