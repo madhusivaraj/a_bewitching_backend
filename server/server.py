@@ -46,7 +46,7 @@ def turn_on_tv():
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
     except:
-        return jsonify(success=False)
+    return jsonify(success=False)
 
 
 #Turning off overhead lights should trigger:
@@ -57,9 +57,8 @@ def turn_off_lights():
     try: 
         action_dict = {"action":"turn_off_lights"}
         send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
         
-	action_dict = {"action":"play_shriek"}
+        action_dict = {"action":"play_shriek"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
     except:
@@ -76,7 +75,7 @@ def silhouette_event():
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
         
-	action_dict = {"action":"play_creepy_whisper"}
+        action_dict = {"action":"play_creepy_whisper"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
     except:
