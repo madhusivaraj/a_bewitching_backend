@@ -22,18 +22,10 @@ def welcome():
     try:
         action_dict = {"action":"pi0_welcome"}
         send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
 
-    try:
         action_dict = {"action":"pi2_welcome"}
         send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
 
-    try:
         action_dict = {"action":"turn_on_lights"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
@@ -49,11 +41,7 @@ def turn_on_tv():
     try:
         action_dict = {"action":"turn_on_tv"}
         send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
 
-    try:
         action_dict = {"action":"play_static_sounds"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
@@ -69,11 +57,7 @@ def turn_off_lights():
     try: 
         action_dict = {"action":"turn_off_lights"}
         send_message(json.dumps(action_dict),"action")
-        return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-
-    try: 
+        
         action_dict = {"action":"play_shriek"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
@@ -90,10 +74,7 @@ def silhouette_event():
         action_dict = {"action":"silhouette_event"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-
-    try:
+        
         action_dict = {"action":"play_creepy_whisper"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
@@ -110,17 +91,9 @@ def doll():
         action_dict = {"action":"doll"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-
-    try:
         action_dict = {"action":"pi0_child_laughs"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-
-    try:
         action_dict = {"action":"pi2_child_laughs"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
@@ -136,10 +109,6 @@ def masks():
         action_dict = {"action":"drop_masks"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
-    except:
-        return jsonify(success=False)
-    
-    try:
         action_dict = {"action":"play_mutters"}
         send_message(json.dumps(action_dict),"action")
         return jsonify(success=True)
