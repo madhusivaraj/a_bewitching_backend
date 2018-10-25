@@ -12,8 +12,12 @@ button {
 	border-radius: 10px;
 	height: 150px;
 	width: 250px;
+	display: block;
 	font-size: 30px;
 	color: #e9ebee;
+}
+#welcomeButton {
+	width: 100%;
 }
 
 .button-row button{
