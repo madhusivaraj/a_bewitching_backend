@@ -49,12 +49,52 @@ while(True):
 
         action = json.loads(data['Message'])
         if 'action' in action:
+            #TV event
             if (action['action'] == 'turn_on_tv'):
                 sound_path = "../media/static_sound.mp3"
                 video = "../media/static_video.mp4"
 
                 #Open subprocess to play static.mp4 at the same time as static_noise.mp3
                 subprocess.Popen([trigger.TV, video])
+                subprocess.Popen([trigger.audio, sound_path])
+                
+                #only delete if we have to
+                client.delete_message(
+                    QueueUrl=config.sqs_url,
+                    ReceiptHandle=receipt_handle
+                )
+
+            #Speaker event: Child's laughter
+            if (action['action'] == 'pi0_child_laughs'):
+                sound_path = "../media/child_laughs.mp3"
+
+                #Open subprocess to play sound
+                subprocess.Popen([trigger.audio, sound_path])
+                
+                #only delete if we have to
+                client.delete_message(
+                    QueueUrl=config.sqs_url,
+                    ReceiptHandle=receipt_handle
+                )
+
+            #Speaker event: Creepy whisper ('I see you')
+            if (action['action'] == 'play_creepy_whisper'):
+                sound_path = "../media/creepy_whisper.mp3"
+
+                #Open subprocess to play sound
+                subprocess.Popen([trigger.audio, sound_path])
+                
+                #only delete if we have to
+                client.delete_message(
+                    QueueUrl=config.sqs_url,
+                    ReceiptHandle=receipt_handle
+                )
+
+            #Speaker event: welcome
+            if (action['action'] == 'welcome'):
+                sound_path = "../media/welcome.mp3"
+
+                #Open subprocess to play sound
                 subprocess.Popen([trigger.audio, sound_path])
                 
                 #only delete if we have to
