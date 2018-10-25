@@ -1,0 +1,25 @@
+body {
+	background-color: #1c1c1c;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* input.btn:active { background:green; } */
+
+button {
+	background-color: #aa2a2a;
+	box-shadow: 7px 10px 20px none;
+	border-color: black;
+	border-radius: 10px;
+	height: 150px;
+	width: 250px;
+	font-size: 30px;
+	color: #e9ebee;
+}
+
+.button-row button{
+  margin: 1em;
+}
+.button-container{
+  margin: auto;
+  padding: 10% 10% 10% 10%; 
+}
