@@ -28,7 +28,7 @@
 
                                                  <!-- SCREAM-->
                 <div class="button-row">
-                    <button id="screamButton" onClick="mask('screamButton')" onmousedown="this.style.background='#e21304'"
+                    <button id="screamButton" onClick="scream('screamButton')" onmousedown="this.style.background='#e21304'"
                         onmouseup="this.style.background='#aa2a2a'" type="submit">SCREAM</button> 
                 </div>
 
@@ -94,7 +94,7 @@
         }
         
         /* CHILD SCREAM */
-        function on(btn) {
+        function scream(btn) {
             $.ajax({
                 type: 'POST',
                 url: '/pi2_child_laughs'
