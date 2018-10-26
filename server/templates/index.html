@@ -26,10 +26,10 @@
                         onmouseup="this.style.background='#aa2a2a'" type="submit">PLAY MUTTERING NOISES</button> 
                 </div>
 
-                                                 <!-- CHILD LAUGHING-->
+                                                 <!-- SCREAM-->
                 <div class="button-row">
-                    <button id="childLaughButton" onClick="mask('childLaughButton')" onmousedown="this.style.background='#e21304'"
-                        onmouseup="this.style.background='#aa2a2a'" type="submit">TRIGGER LAUGH NOISES</button> 
+                    <button id="screamButton" onClick="mask('screamButton')" onmousedown="this.style.background='#e21304'"
+                        onmouseup="this.style.background='#aa2a2a'" type="submit">SCREAM</button> 
                 </div>
 
                                                 <!-- TURN ON TV -->
@@ -72,7 +72,7 @@
         var footstepscount = 3;
         var dollcount = 3;
         var tvcount = 3;
-        var list = ["dropMaskButton", "flashButton", "dollButton", "tvButton", "welcomeButton", "lightsOff", "lightsOn", "childLaughButton"];
+        var list = ["dropMaskButton", "flashButton", "dollButton", "tvButton", "welcomeButton", "lightsOff", "lightsOn", "screamButton"];
 
         /* LIGHTS ON */
         function on(btn) {
@@ -93,7 +93,7 @@
             */
         }
         
-        /* CHILD LAUGH */
+        /* CHILD SCREAM */
         function on(btn) {
             $.ajax({
                 type: 'POST',
