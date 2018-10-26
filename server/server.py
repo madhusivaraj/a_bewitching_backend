@@ -66,6 +66,16 @@ def turn_on_lights():
         return jsonify(success=False)
 
 
+#CHILD LAUGH FOR PI 2
+@app.route('/play_child_laugh', methods=['POST'])
+def turn_on_lights():
+    try: 
+        action_dict = {"action":"play_child_laugh"}
+        send_message(json.dumps(action_dict),"action")
+        
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
 #silhouette_event should trigger:
 # Pi 2: turn on floodlight
 # Pi 0: play creepy_whisper.mp3

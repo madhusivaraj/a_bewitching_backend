@@ -23,13 +23,19 @@
                                                  <!-- MASK DROP -->
                 <div class="button-row">
                     <button id="dropMaskButton" onClick="mask('dropMaskButton')" onmousedown="this.style.background='#e21304'"
-                        onmouseup="this.style.background='#aa2a2a'" type="submit">DROP THE MASKS</button> 
+                        onmouseup="this.style.background='#aa2a2a'" type="submit">PLAY MUTTERING NOISES</button> 
+                </div>
+
+                                                 <!-- CHILD LAUGHING-->
+                <div class="button-row">
+                    <button id="childLaughButton" onClick="mask('childLaughButton')" onmousedown="this.style.background='#e21304'"
+                        onmouseup="this.style.background='#aa2a2a'" type="submit">TRIGGER LAUGH NOISES</button> 
                 </div>
 
                                                 <!-- TURN ON TV -->
             <div class="button-row">
                     <button id="tvButton" onClick="turn_on_tv('tvButton')" onmousedown="this.style.background='#e21304'"
-                    onmouseup="this.style.background='#aa2a2a'" type="submit">TURN ON TV </button>
+                    onmouseup="this.style.background='#aa2a2a'" type="submit">TURN ON STATIC SOUNDS </button>
             </div>
 
             
@@ -66,7 +72,7 @@
         var footstepscount = 3;
         var dollcount = 3;
         var tvcount = 3;
-        var list = ["dropMaskButton", "flashButton", "dollButton", "tvButton", "welcomeButton", "lightsOff", "lightsOn"];
+        var list = ["dropMaskButton", "flashButton", "dollButton", "tvButton", "welcomeButton", "lightsOff", "lightsOn", "childLaughButton"];
 
         /* LIGHTS ON */
         function on(btn) {
@@ -86,7 +92,25 @@
             setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
             */
         }
-
+        
+        /* CHILD LAUGH */
+        function on(btn) {
+            $.ajax({
+                type: 'POST',
+                url: '/pi2_child_laughs'
+            });
+            
+            /*
+            disableAll(list); // disable all BUT the current button
+            var index = list.indexOf("lightsOn"); // find index of curr id
+            list.splice(index, 1); // remove that id
+            setTimeout(setUpAll, 10000, list); // disable all but that one button
+            list.push("lightsOn");
+          
+            disable(btn); // disable current button
+            setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
+            */
+        }
         /* LIGHTS OFF */
         function off(btn) {
             $.ajax({
@@ -113,21 +137,21 @@
                 url: '/welcome'
             });
             
-            disableAll(list); // disable all BUT the current button
-            var index = list.indexOf("welcomeButton"); // find index of curr id
-            list.splice(index, 1); // remove that id
-            setTimeout(setUpAll, 10000, list); // disable all but that one button
-            list.push("welcomeButton");
+            // disableAll(list); // disable all BUT the current button
+            // var index = list.indexOf("welcomeButton"); // find index of curr id
+            // list.splice(index, 1); // remove that id
+            // setTimeout(setUpAll, 10000, list); // disable all but that one button
+            // list.push("welcomeButton");
 
-            wCount--;
-            if (wCount == 0) {
-                disable(btn);
-                var index = list.indexOf("welcomeButton"); // remove from list so itll never be enabled again
-                list.splice(index, 1);
-                return;
-            }
-            disable(btn); // disable current button
-            setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
+            // wCount--;
+            // if (wCount == 0) {
+            //     disable(btn);
+            //     var index = list.indexOf("welcomeButton"); // remove from list so itll never be enabled again
+            //     list.splice(index, 1);
+            //     return;
+            // }
+            // disable(btn); // disable current button
+            // setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
         }
 
         /* DROPS MASKS */
@@ -137,21 +161,21 @@
                 url: '/masks'
             });
             
-            disableAll(list); // disable all BUT the current button
-            var index = list.indexOf("dropMaskButton"); // find index of curr id
-            list.splice(index, 1); // remove that id
-            setTimeout(setUpAll, 10000, list); // disable all but that one button
-            list.push("dropMaskButton");
+            // disableAll(list); // disable all BUT the current button
+            // var index = list.indexOf("dropMaskButton"); // find index of curr id
+            // list.splice(index, 1); // remove that id
+            // setTimeout(setUpAll, 10000, list); // disable all but that one button
+            // list.push("dropMaskButton");
 
-            maskcount--;
-            if (maskcount == 0) {
-                disable(btn);
-                var index = list.indexOf("dropMaskButton"); // remove from list so itll never be enabled again
-                list.splice(index, 1);
-                return;
-            }
-            disable(btn); // disable current button
-            setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
+            // maskcount--;
+            // if (maskcount == 0) {
+            //     disable(btn);
+            //     var index = list.indexOf("dropMaskButton"); // remove from list so itll never be enabled again
+            //     list.splice(index, 1);
+            //     return;
+            // }
+            // disable(btn); // disable current button
+            // setTimeout(setUp, Math.max(2000, 10000), btn); // enable button again
         }
 
         /* TURNS ON TV */
@@ -161,21 +185,21 @@
                 url: '/turn_on_tv'
             });
             
-            disableAll(list); // disable all BUT the current button
-            var index = list.indexOf("tvButton"); // find index of curr id
-            list.splice(index, 1); // remove that id
-            setTimeout(setUpAll, 20000, list); // disable all but that one button
-            list.push("tvButton");
+            // disableAll(list); // disable all BUT the current button
+            // var index = list.indexOf("tvButton"); // find index of curr id
+            // list.splice(index, 1); // remove that id
+            // setTimeout(setUpAll, 20000, list); // disable all but that one button
+            // list.push("tvButton");
 
-            tvcount--;
-            if (tvcount == 0) {
-                disable(btn);
-                var index = list.indexOf("tvButton"); // remove from list so itll never be enabled again
-                list.splice(index, 1);
-                return;
-            }
-            disable(btn);
-            setTimeout(setUp, Math.max(10000, 2000), btn);
+            // tvcount--;
+            // if (tvcount == 0) {
+            //     disable(btn);
+            //     var index = list.indexOf("tvButton"); // remove from list so itll never be enabled again
+            //     list.splice(index, 1);
+            //     return;
+            // }
+            // disable(btn);
+            // setTimeout(setUp, Math.max(10000, 2000), btn);
         }
 
         /* ILLUMINATES MANNEQUIN HEADS (turns on floodlight) */
@@ -185,21 +209,21 @@
                 url: '/silhouette_event'
             });
             
-            disableAll(list); // disable all BUT the current button
-            var index = list.indexOf("flashButton"); // find index of curr id
-            list.splice(index, 1); // remove that id
-            setTimeout(setUpAll, 10000, list); // disable all but that one button
-            list.push("flashButton");
+            // disableAll(list); // disable all BUT the current button
+            // var index = list.indexOf("flashButton"); // find index of curr id
+            // list.splice(index, 1); // remove that id
+            // setTimeout(setUpAll, 10000, list); // disable all but that one button
+            // list.push("flashButton");
 
-            flashcount--;
-            if (flashcount == 0) {
-                disable(btn);
-                var index = list.indexOf("flashButton"); // remove from list so itll never be enabled again
-                list.splice(index, 1); // remove that id
-                return;
-            }
-            disable(btn);
-            setTimeout(setUp, Math.max(10000, 2000), btn);
+            // flashcount--;
+            // if (flashcount == 0) {
+            //     disable(btn);
+            //     var index = list.indexOf("flashButton"); // remove from list so itll never be enabled again
+            //     list.splice(index, 1); // remove that id
+            //     return;
+            // }
+            // disable(btn);
+            // setTimeout(setUp, Math.max(10000, 2000), btn);
         }
 
         /* MESSES WITH DOLL */
@@ -209,21 +233,21 @@
                 url: '/doll'
             });
             
-            disableAll(list); // disable all BUT the current button
-            var index = list.indexOf("dollButton"); // find index of curr id
-            list.splice(index, 1); // remove that id
-            setTimeout(setUpAll, 10000, list); // disable all but that one button
-            list.push("dollButton");
+            // disableAll(list); // disable all BUT the current button
+            // var index = list.indexOf("dollButton"); // find index of curr id
+            // list.splice(index, 1); // remove that id
+            // setTimeout(setUpAll, 10000, list); // disable all but that one button
+            // list.push("dollButton");
 
-            dollcount--;
-            if (dollcount == 0) {
-                disable(btn);
-                var index = list.indexOf("dollButton"); // remove from list so itll never be enabled again
-                list.splice(index, 1); // remove that id
-                return;
-            }
-            disable(btn);
-            setTimeout(setUp, Math.max(10000, 2000), btn);
+            // dollcount--;
+            // if (dollcount == 0) {
+            //     disable(btn);
+            //     var index = list.indexOf("dollButton"); // remove from list so itll never be enabled again
+            //     list.splice(index, 1); // remove that id
+            //     return;
+            // }
+            // disable(btn);
+            // setTimeout(setUp, Math.max(10000, 2000), btn);
         }
 
         function setUp(btn) {
