@@ -68,7 +68,7 @@ def turn_on_lights():
 
 #CHILD LAUGH FOR PI 2
 @app.route('/play_child_laugh', methods=['POST'])
-def turn_on_lights():
+def play_child_laughs():
     try: 
         action_dict = {"action":"play_child_laugh"}
         send_message(json.dumps(action_dict),"action")
